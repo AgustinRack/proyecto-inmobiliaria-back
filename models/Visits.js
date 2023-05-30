@@ -1,13 +1,12 @@
-const { Sequelize, DataType } = require("Sequelize");
+const { Sequelize, DataTypes } = require("sequelize");
 const db = require("../db");
-const bcrypt = require("bcrypt");
 
-class Visits extends Sequelize {}
+class Visits extends Sequelize.Model {}
 
 Visits.init(
   {
-    date: { type: DataType.DATE, allowNull: false },
-    schedule: { type: DataType.TIME, allowNull: false },
+    date: { type: DataTypes.DATE, allowNull: false },
+    schedule: { type: DataTypes.TIME, allowNull: false },
   },
   { sequelize: db, modelName: "visits" }
 );

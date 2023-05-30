@@ -1,8 +1,7 @@
-const Sequelize = require("sequelize");
+const { Sequelize } = require("sequelize");
 const db = require("../db");
-const bcrypt = require("bcrypt");
 
-class Properties extends Sequelize {}
+class Properties extends Sequelize.Model {}
 
 Properties.init(
   {
