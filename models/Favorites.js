@@ -1,15 +1,14 @@
-const Sequelize = require("sequelize");
+const { Sequelize } = require("sequelize");
 const db = require("../db");
-const bcrypt = require("bcrypt");
 
-class favorites extends Sequelize {}
+class Favorites extends Sequelize.Model {}
 
-Visits.Favorites(
+Favorites.init(
   {
-    user_id: { type: DataType.DATE, allowNull: false },
-    properties_id: { type: DataType.TIME, allowNull: false },
+    user_id: { type: Sequelize.INTEGER, allowNull: false },
+    properties_id: { type: Sequelize.INTEGER, allowNull: false },
   },
-  { sequelize: db, modelName: "Favorites" }
+  { sequelize: db, modelName: "favorites" }
 );
 
 module.exports = Favorites;
