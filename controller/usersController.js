@@ -3,7 +3,9 @@ const { Users } = require("../models");
 
 const signup = async (req, res) => {
   try {
-    const existingUser = await Users.findOne({ email: req.body.email });
+    const existingUser = await Users.findOne({
+      where: { email: req.body.email },
+    });
     if (existingUser) {
       return res.status(409).send("El correo electrónico ya está registrado");
     }
@@ -33,6 +35,7 @@ const login = async (req, res) => {
           email,
         });
         res.cookie("token", token);
+        console.log(user);
         res.sendStatus(200);
       }
     });

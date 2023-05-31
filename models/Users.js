@@ -17,17 +17,12 @@ Users.init(
 );
 
 Users.beforeCreate((user) => {
-  const saltRounds = 10;
+  const salt = bcrypt.genSaltSync(10);
+  user.salt = salt;
 
-  return bcrypt
-    .genSalt(saltRounds)
-    .then((salt) => {
-      user.salt = salt;
-      return bcrypt.hash(user.password, salt);
-    })
-    .then((hash) => {
-      user.password = hash;
-    });
+  return user.hash(user.password, user.salt).then((hash) => {
+    user.password = hash;
+  });
 });
 
 Users.prototype.hash = function (plainPassword, salt) {
@@ -35,9 +30,7 @@ Users.prototype.hash = function (plainPassword, salt) {
 };
 
 Users.prototype.validatePassword = function (password) {
-  return bcrypt
-    .hash(password, this.salt)
-    .then((hash) => hash === this.password);
+  return bcrypt.compare(password, this.password);
 };
 
 module.exports = Users;
