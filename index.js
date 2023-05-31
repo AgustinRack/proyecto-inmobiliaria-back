@@ -19,7 +19,7 @@ app.use("/", routes);
 
 const force = false;
 
-db.sync({ force })
+db.sync({ force: force })
   .then(function () {
     app.listen(8080, () => console.log("Server listening on port 8080"));
   })
