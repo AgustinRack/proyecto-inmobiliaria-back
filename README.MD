@@ -1,0 +1,11 @@
+dependencias:
+bcrypt
+cors
+express
+jsonwebtoken
+mysql2
+nodemon
+pg
+pg-hstore
+sequelize
+sequelize-cli
