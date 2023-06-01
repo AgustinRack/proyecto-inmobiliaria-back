@@ -35,8 +35,15 @@ const login = async (req, res) => {
           email,
         });
         res.cookie("token", token);
-        console.log(user);
-        res.sendStatus(200);
+        const dataToSend = {
+          id: user.id,
+          admin: user.admin,
+          name: user.name,
+          lastName: user.lastName,
+          email: user.email,
+          user: user.phoneNumber,
+        };
+        res.status(200).send(dataToSend);
       }
     });
   } catch (err) {
