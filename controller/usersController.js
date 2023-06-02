@@ -39,7 +39,7 @@ const login = async (req, res) => {
       }
     });
   } catch (err) {
-    res.status(404).send(err);
+    res.send(err).status(404);
   }
 };
 
@@ -49,8 +49,4 @@ const secret = (req, res) => {
   res.send(payload);
 };
 
-const me = (req, res) => {
-  res.send(req.user);
-};
-
-module.exports = { signup, login, secret, me };
+module.exports = { signup, login, secret };
