@@ -41,7 +41,7 @@ const login = async (req, res) => {
           name: user.name,
           lastName: user.lastName,
           email: user.email,
-          user: user.phoneNumber,
+          phoneNumber: user.phoneNumber,
         };
         res.status(200).send(dataToSend);
       }
