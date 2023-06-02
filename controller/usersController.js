@@ -12,7 +12,6 @@ const signup = async (req, res) => {
     await Users.create(req.body);
     res.send("usuario creado exitosamente").status(200);
   } catch (err) {
-    console.log(err);
     res.send(err);
   }
 };
@@ -35,7 +34,7 @@ const login = async (req, res) => {
           email,
         });
         res.cookie("token", token);
-        const dataToSend = {
+const dataToSend = {
           id: user.id,
           admin: user.admin,
           name: user.name,
