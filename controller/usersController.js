@@ -22,7 +22,7 @@ const login = async (req, res) => {
       where: { email: req.body.email },
     });
     if (!user) return res.sendStatus(401);
-    const { id, admin, name, lastName, email } = user;
+    const { id, admin, name, lastName, email, phoneNumber } = user;
     user.validatePassword(req.body.password).then((isValid) => {
       if (!isValid) return res.sendStatus(401);
       else {
@@ -32,17 +32,10 @@ const login = async (req, res) => {
           name,
           lastName,
           email,
+          phoneNumber,
         });
         res.cookie("token", token);
-const dataToSend = {
-          id: user.id,
-          admin: user.admin,
-          name: user.name,
-          lastName: user.lastName,
-          email: user.email,
-          phoneNumber: user.phoneNumber,
-        };
-        res.status(200).send(dataToSend);
+        res.sendStatus(200);
       }
     });
   } catch (err) {
@@ -50,4 +43,14 @@ const dataToSend = {
   }
 };
 
-module.exports = { signup, login };
+const secret = (req, res) => {
+  const { payload } = validateToken(req.cookies.token);
+  req.user = payload;
+  res.send(payload);
+};
+
+const me = (req, res) => {
+  res.send(req.user);
+};
+
+module.exports = { signup, login, secret, me };
