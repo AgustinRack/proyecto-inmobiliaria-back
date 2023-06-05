@@ -2,7 +2,6 @@ const { generateToken, validateToken } = require("../config/token");
 const { Users } = require("../models");
 
 const signup = async (req, res) => {
-  console.log("hola");
   try {
     const existingUser = await Users.findOne({
       where: { email: req.body.email },

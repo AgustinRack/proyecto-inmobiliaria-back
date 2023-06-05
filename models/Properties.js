@@ -14,6 +14,8 @@ Properties.init(
     bedrooms: { type: Sequelize.INTEGER, allowNull: false },
     bathrooms: { type: Sequelize.INTEGER, allowNull: false },
     description: { type: Sequelize.STRING, allowNull: false },
+    img: { type: Sequelize.STRING, allowNull: false },
+    imgs: { type: Sequelize.ARRAY(Sequelize.STRING), allowNull: false },
   },
   { sequelize: db, modelName: "properties" }
 );
