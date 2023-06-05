@@ -11,7 +11,7 @@ Users.init(
     lastName: { type: Sequelize.STRING, allowNull: false },
     email: { type: Sequelize.STRING, allowNull: false, unique: true },
     password: { type: Sequelize.STRING, allowNull: false },
-    phoneNumber: { type: Sequelize.INTEGER, allowNull: false },
+    phoneNumber: { type: Sequelize.BIGINT, allowNull: false },
   },
   { sequelize: db, modelName: "users" }
 );

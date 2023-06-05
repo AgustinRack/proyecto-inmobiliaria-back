@@ -2,6 +2,7 @@ const { generateToken, validateToken } = require("../config/token");
 const { Users } = require("../models");
 
 const signup = async (req, res) => {
+  console.log("hola");
   try {
     const existingUser = await Users.findOne({
       where: { email: req.body.email },
@@ -12,7 +13,7 @@ const signup = async (req, res) => {
     await Users.create(req.body);
     res.send("usuario creado exitosamente").status(200);
   } catch (err) {
-    res.send(err);
+    console.error(err);
   }
 };
 
