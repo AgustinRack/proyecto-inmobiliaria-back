@@ -1,9 +1,21 @@
-const { Properties } = require("../models");
+const { Properties, Categories } = require("../models");
 const sequelize = require("sequelize");
 
 async function seedProperties() {
   try {
-    const PropertiesData = [
+    const categoriesData = [
+      {
+        categoryName: "departamento",
+      },
+      { categoryName: "PH" },
+      { categoryName: "casa" },
+      { categoryName: "local" },
+      { categoryName: "terreno" },
+    ];
+
+    await Categories.bulkCreate(categoriesData);
+
+    const propertiesData = [
       {
         type: 1,
         price: 100000,
@@ -19,14 +31,33 @@ async function seedProperties() {
           "https://d3ugyf2ht6aenh.cloudfront.net/stores/188/770/products/140-11-40ba192d4a5d6fa5b616775073386812-640-0.webp---https://d3ugyf2ht6aenh.cloudfront.net/stores/188/770/products/1391-3ab00a842d73512bcc16775073405150-640-0.webp",
           "https://d3ugyf2ht6aenh.cloudfront.net/stores/188/770/products/140-11-40ba192d4a5d6fa5b616775073386812-640-0.webp---https://d3ugyf2ht6aenh.cloudfront.net/stores/188/770/products/1391-3ab00a842d73512bcc16775073405150-640-0.webp",
         ],
+        categoryId: 1,
+      },
+      {
+        type: 2,
+        price: 455500,
+        country: "Argenzuela",
+        neighborhood: "Veci 2",
+        address: "direc 2",
+        size: 322,
+        bedrooms: 3,
+        bathrooms: 2,
+        description: "Descripción 3",
+        img: "https://d3ugyf2ht6aenh.cloudfront.net/stores/188/770/products/140-11-40ba192d4a5d6fa5b616775073386812-640-0.webp---https://d3ugyf2ht6aenh.cloudfront.net/stores/188/770/products/1391-3ab00a842d73512bcc16775073405150-640-0.webp",
+        imgs: [
+          "https://d3ugyf2ht6aenh.cloudfront.net/stores/188/770/products/140-11-40ba192d4a5d6fa5b616775073386812-640-0.webp---https://d3ugyf2ht6aenh.cloudfront.net/stores/188/770/products/1391-3ab00a842d73512bcc16775073405150-640-0.webp",
+          "https://d3ugyf2ht6aenh.cloudfront.net/stores/188/770/products/140-11-40ba192d4a5d6fa5b616775073386812-640-0.webp---https://d3ugyf2ht6aenh.cloudfront.net/stores/188/770/products/1391-3ab00a842d73512bcc16775073405150-640-0.webp",
+        ],
+        categoryId: 3,
       },
     ];
 
-    await Properties.bulkCreate(PropertiesData);
+    await Properties.bulkCreate(propertiesData);
 
     console.log("Productos sembrados exitosamente");
   } catch (error) {
     console.error("Error al sembrar los datos de productos:", error);
   }
 }
+
 seedProperties();
