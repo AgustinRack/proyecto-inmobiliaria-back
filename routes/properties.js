@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const { Properties } = require("../models");
-const { propertiesControllers } = require("../controller");
+const { propertiesController } = require("../controller");
 
-router.get("/all", propertiesControllers.allProperties);
+router.get("/all", propertiesController.allProperties);
 
 module.exports = router;
