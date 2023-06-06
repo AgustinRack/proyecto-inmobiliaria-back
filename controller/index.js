@@ -1,3 +1,4 @@
 const usersController = require("./usersController");
+const propertiesController = require("./propertiesControllers");
 
-module.exports = { usersController };
+module.exports = { usersController, propertiesController };
