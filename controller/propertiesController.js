@@ -1,9 +1,9 @@
-const { Properties } = require("../models/Properties");
+const { Properties } = require("../models");
 
 const allProperties = async (req, res) => {
   Properties.findAll().then((properties) => {
     const allProperties = properties.map((property) => property.dataValues);
-    res.send(allProperties);
+    res.send(allProperties).status(200);
   });
 };
 
