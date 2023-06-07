@@ -16,7 +16,7 @@ const deleteProperty = async (req, res) => {
     .catch((error) => console.log(error));
 };
 
-const modProperty = async (req, res) => {
+const editProperty = async (req, res) => {
   const { id } = req.params;
   const {
     size,
@@ -71,7 +71,7 @@ const getPropertiesForSale = async (req, res) => {
 module.exports = {
   allProperties,
   deleteProperty,
-  modProperty,
+  editProperty,
   getPropertiesForRent,
   getPropertiesForSale,
 };
