@@ -68,10 +68,50 @@ const getPropertiesForSale = async (req, res) => {
     .catch((err) => res.status(404).send(err));
 };
 
+//COMO ADMIN AGREGAR UNA PROPIEDAD
+
+const createProperty = async (req, res) => {
+  const {
+    size,
+    bathrooms,
+    bedrooms,
+    country,
+    neighborhood,
+    address,
+    description,
+    price,
+    img,
+    imgs,
+    categoryId,
+  } = req.body;
+
+  try {
+    const property = await Properties.create({
+      size,
+      bathrooms,
+      bedrooms,
+      country,
+      neighborhood,
+      address,
+      description,
+      price,
+      img,
+      imgs,
+      categoryId,
+    });
+
+    res.status(201).send(property);
+  } catch (error) {
+    console.log(error);
+    res.status(500).send("Error al crear la propiedad");
+  }
+};
+
 module.exports = {
   allProperties,
   deleteProperty,
   editProperty,
   getPropertiesForRent,
   getPropertiesForSale,
+  createProperty,
 };
