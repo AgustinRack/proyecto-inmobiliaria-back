@@ -2,8 +2,7 @@ const { Properties } = require("../models");
 
 const allProperties = async (req, res) => {
   Properties.findAll().then((properties) => {
-    const allProperties = properties.map((property) => property.dataValues);
-    res.send(allProperties).status(200);
+    res.send(properties).status(200);
   });
 };
 
@@ -53,4 +52,26 @@ const modProperty = async (req, res) => {
     .catch((error) => console.log(error));
 };
 
-module.exports = { allProperties, deleteProperty, modProperty };
+const getPropertiesForRent = async (req, res) => {
+  Properties.findAll({ where: { is_for_rent: true } })
+    .then((properties) => {
+      res.send(properties).status(200);
+    })
+    .catch((err) => res.status(404).send(err));
+};
+
+const getPropertiesForSale = async (req, res) => {
+  Properties.findAll({ where: { is_for_rent: false } })
+    .then((properties) => {
+      res.send(properties).status(200);
+    })
+    .catch((err) => res.status(404).send(err));
+};
+
+module.exports = {
+  allProperties,
+  deleteProperty,
+  modProperty,
+  getPropertiesForRent,
+  getPropertiesForSale,
+};

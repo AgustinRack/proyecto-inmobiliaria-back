@@ -15,7 +15,7 @@ async function seedProperties() {
 
     const propertiesData = [
       {
-        type: 2,
+        is_for_rent: false,
         price: 100000,
         country: "Argentina",
         neighborhood: "Vecindario privado",
@@ -32,7 +32,7 @@ async function seedProperties() {
         categoryId: 1,
       },
       {
-        type: 1,
+        is_for_rent: true,
         price: 500,
         country: "Argentina",
         neighborhood: "Vecindario publico",
@@ -49,7 +49,7 @@ async function seedProperties() {
         categoryId: 1,
       },
       {
-        type: 2,
+        is_for_rent: false,
         price: 300000,
         country: "Argentina",
         neighborhood: "Centro",
@@ -66,7 +66,7 @@ async function seedProperties() {
         categoryId: 1,
       },
       {
-        type: 1,
+        is_for_rent: true,
         price: 100,
         country: "Argentina",
         neighborhood: "Vecindario 10",
@@ -83,7 +83,7 @@ async function seedProperties() {
         categoryId: 2,
       },
       {
-        type: 2,
+        is_for_rent: false,
         price: 150000,
         country: "Argentina",
         neighborhood: "Vecindario sur",
@@ -100,7 +100,7 @@ async function seedProperties() {
         categoryId: 2,
       },
       {
-        type: 1,
+        is_for_rent: true,
         price: 300,
         country: "Argentina",
         neighborhood: "Vecindario norte",
@@ -117,7 +117,7 @@ async function seedProperties() {
         categoryId: 2,
       },
       {
-        type: 1,
+        is_for_rent: true,
         price: 800,
         country: "Argentina",
         neighborhood: "Vecindario Noroeste",
@@ -134,7 +134,7 @@ async function seedProperties() {
         categoryId: 3,
       },
       {
-        type: 2,
+        is_for_rent: false,
         price: 100000,
         country: "Argentina",
         neighborhood: "Vecindario 112",
@@ -151,7 +151,7 @@ async function seedProperties() {
         categoryId: 3,
       },
       {
-        type: 1,
+        is_for_rent: true,
         price: 700,
         country: "Argentina",
         neighborhood: "Vecindario 171",
@@ -168,7 +168,7 @@ async function seedProperties() {
         categoryId: 3,
       },
       {
-        type: 2,
+        is_for_rent: false,
         price: 200000,
         country: "Argentina",
         neighborhood: "Vecindario norte",
@@ -185,7 +185,7 @@ async function seedProperties() {
         categoryId: 4,
       },
       {
-        type: 2,
+        is_for_rent: false,
         price: 100000,
         country: "Argentina",
         neighborhood: "Vecindario centro",
@@ -202,7 +202,7 @@ async function seedProperties() {
         categoryId: 4,
       },
       {
-        type: 2,
+        is_for_rent: false,
         price: 300000,
         country: "Argentina",
         neighborhood: "Vecindario sur",
@@ -219,7 +219,7 @@ async function seedProperties() {
         categoryId: 4,
       },
       {
-        type: 2,
+        is_for_rent: false,
         price: 300000,
         country: "Argentina",
         neighborhood: "Vecindario este",
@@ -236,7 +236,7 @@ async function seedProperties() {
         categoryId: 5,
       },
       {
-        type: 1,
+        is_for_rent: true,
         price: 200,
         country: "Argentina",
         neighborhood: "Vecindario publico",
@@ -253,7 +253,7 @@ async function seedProperties() {
         categoryId: 5,
       },
       {
-        type: 2,
+        is_for_rent: false,
         price: 200000,
         country: "Argentina",
         neighborhood: "Vecindario rosario",
@@ -270,7 +270,7 @@ async function seedProperties() {
         categoryId: 5,
       },
       {
-        type: 2,
+        is_for_rent: false,
         price: 100000,
         country: "Argentina",
         neighborhood: "Vecindario privado",
@@ -287,7 +287,7 @@ async function seedProperties() {
         categoryId: 1,
       },
       {
-        type: 1,
+        is_for_rent: true,
         price: 500,
         country: "Argentina",
         neighborhood: "Vecindario publico",
@@ -304,7 +304,7 @@ async function seedProperties() {
         categoryId: 1,
       },
       {
-        type: 2,
+        is_for_rent: false,
         price: 300000,
         country: "Argentina",
         neighborhood: "Centro",
@@ -321,7 +321,7 @@ async function seedProperties() {
         categoryId: 1,
       },
       {
-        type: 1,
+        is_for_rent: true,
         price: 100,
         country: "Argentina",
         neighborhood: "Vecindario 10",
@@ -338,7 +338,7 @@ async function seedProperties() {
         categoryId: 2,
       },
       {
-        type: 2,
+        is_for_rent: false,
         price: 150000,
         country: "Argentina",
         neighborhood: "Vecindario sur",
@@ -355,7 +355,7 @@ async function seedProperties() {
         categoryId: 2,
       },
       {
-        type: 1,
+        is_for_rent: true,
         price: 300,
         country: "Argentina",
         neighborhood: "Vecindario norte",
@@ -372,7 +372,7 @@ async function seedProperties() {
         categoryId: 2,
       },
       {
-        type: 1,
+        is_for_rent: true,
         price: 800,
         country: "Argentina",
         neighborhood: "Vecindario Noroeste",
@@ -389,7 +389,7 @@ async function seedProperties() {
         categoryId: 3,
       },
       {
-        type: 2,
+        is_for_rent: false,
         price: 100000,
         country: "Argentina",
         neighborhood: "Vecindario 112",
@@ -406,7 +406,7 @@ async function seedProperties() {
         categoryId: 3,
       },
       {
-        type: 1,
+        is_for_rent: true,
         price: 700,
         country: "Argentina",
         neighborhood: "Vecindario 171",
@@ -423,7 +423,7 @@ async function seedProperties() {
         categoryId: 3,
       },
       {
-        type: 2,
+        is_for_rent: false,
         price: 200000,
         country: "Argentina",
         neighborhood: "Vecindario norte",
@@ -440,7 +440,7 @@ async function seedProperties() {
         categoryId: 4,
       },
       {
-        type: 2,
+        is_for_rent: false,
         price: 100000,
         country: "Argentina",
         neighborhood: "Vecindario centro",
@@ -457,7 +457,7 @@ async function seedProperties() {
         categoryId: 4,
       },
       {
-        type: 2,
+        is_for_rent: false,
         price: 300000,
         country: "Argentina",
         neighborhood: "Vecindario sur",
@@ -474,7 +474,7 @@ async function seedProperties() {
         categoryId: 4,
       },
       {
-        type: 2,
+        is_for_rent: false,
         price: 300000,
         country: "Argentina",
         neighborhood: "Vecindario este",
@@ -491,7 +491,7 @@ async function seedProperties() {
         categoryId: 5,
       },
       {
-        type: 1,
+        is_for_rent: true,
         price: 200,
         country: "Argentina",
         neighborhood: "Vecindario publico",
@@ -508,7 +508,7 @@ async function seedProperties() {
         categoryId: 5,
       },
       {
-        type: 2,
+        is_for_rent: false,
         price: 200000,
         country: "Argentina",
         neighborhood: "Vecindario rosario",
