@@ -1,7 +1,11 @@
-const { Properties } = require("../models");
+const { Properties, Categories } = require("../models");
 
 const allProperties = async (req, res) => {
-  Properties.findAll().then((properties) => {
+  Properties.findAll({
+    include: {
+      model: Categories,
+    },
+  }).then((properties) => {
     res.send(properties).status(200);
   });
 };
@@ -53,7 +57,10 @@ const editProperty = async (req, res) => {
 };
 
 const getPropertiesForRent = async (req, res) => {
-  Properties.findAll({ where: { is_for_rent: true } })
+  Properties.findAll({
+    include: { model: Categories },
+    where: { is_for_rent: true },
+  })
     .then((properties) => {
       res.send(properties).status(200);
     })
@@ -61,7 +68,10 @@ const getPropertiesForRent = async (req, res) => {
 };
 
 const getPropertiesForSale = async (req, res) => {
-  Properties.findAll({ where: { is_for_rent: false } })
+  Properties.findAll({
+    include: { model: Categories },
+    where: { is_for_rent: false },
+  })
     .then((properties) => {
       res.send(properties).status(200);
     })
