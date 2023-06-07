@@ -5,7 +5,7 @@ class Properties extends Sequelize.Model {}
 
 Properties.init(
   {
-    type: { type: Sequelize.INTEGER, allowNull: false },
+    is_for_rent: { type: Sequelize.BOOLEAN, allowNull: false },
     price: { type: Sequelize.INTEGER, allowNull: false },
     country: { type: Sequelize.STRING, allowNull: false },
     neighborhood: { type: Sequelize.STRING, allowNull: false },
