@@ -9,7 +9,7 @@ function validateUser(req, res, next) {
 
     if (payload) return next();
   }
-  res.sendStatus(401);
+  res.status(401).send("no hay usuario logueado");
 }
 
 module.exports = validateUser;
