@@ -49,4 +49,34 @@ const secret = (req, res) => {
   res.send(payload);
 };
 
-module.exports = { signup, login, secret };
+const logout = (req, res) => {
+  res.clearCookie("token");
+  res.sendStatus(200);
+};
+
+const editUser = async (req, res) => {
+  const { id } = req.user;
+  const { name, lastName, email, phoneNumber } = req.body;
+
+  try {
+    const user = await Users.findOne({ where: { id } });
+
+    if (!user) {
+      return res.status(401).send("Usuario no encontrado");
+    }
+
+    user.name = name;
+    user.lastName = lastName;
+    user.email = email;
+    user.phoneNumber = phoneNumber;
+
+    await user.save();
+
+    res.send("Usuario actualizado exitosamente").status(200);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Error al actualizar el usuario");
+  }
+};
+
+module.exports = { signup, login, secret, logout, editUser };
