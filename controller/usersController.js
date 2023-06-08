@@ -79,4 +79,86 @@ const editUser = async (req, res) => {
   }
 };
 
-module.exports = { signup, login, secret, logout, editUser };
+const editUserName = async (req, res) => {
+  const { id } = req.body;
+  const { name } = req.body;
+
+  try {
+    const user = await Users.findOne({ where: { id } });
+
+    user.name = name;
+
+    await user.save();
+
+    res.send(user).status(200);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Error al actualizar el usuario");
+  }
+};
+
+const editUserEmail = async (req, res) => {
+  const { id } = req.body;
+  const { email } = req.body;
+
+  try {
+    const user = await Users.findOne({ where: { id } });
+
+    user.email = email;
+
+    await user.save();
+
+    res.send(user).status(200);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Error al actualizar el usuario");
+  }
+};
+
+const editUserLastName = async (req, res) => {
+  const { id } = req.body;
+  const { lastName } = req.body;
+
+  try {
+    const user = await Users.findOne({ where: { id } });
+
+    user.lastName = lastName;
+
+    await user.save();
+
+    res.send(user).status(200);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Error al actualizar el usuario");
+  }
+};
+
+const editUserPhoneNumber = async (req, res) => {
+  const { id } = req.body;
+  const { phoneNumber } = req.body;
+
+  try {
+    const user = await Users.findOne({ where: { id } });
+
+    user.phoneNumber = phoneNumber;
+
+    await user.save();
+
+    res.send(user).status(200);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Error al actualizar el usuario");
+  }
+};
+
+module.exports = {
+  signup,
+  login,
+  secret,
+  logout,
+  editUser,
+  editUserName,
+  editUserEmail,
+  editUserLastName,
+  editUserPhoneNumber,
+};
