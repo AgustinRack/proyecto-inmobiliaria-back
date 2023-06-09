@@ -55,15 +55,10 @@ const logout = (req, res) => {
 };
 
 const editUser = async (req, res) => {
-  const { id } = req.user;
-  const { name, lastName, email, phoneNumber } = req.body;
+  const { id, name, lastName, email, phoneNumber } = req.body;
 
   try {
     const user = await Users.findOne({ where: { id } });
-
-    if (!user) {
-      return res.status(401).send("Usuario no encontrado");
-    }
 
     user.name = name;
     user.lastName = lastName;
@@ -72,77 +67,16 @@ const editUser = async (req, res) => {
 
     await user.save();
 
-    res.send("Usuario actualizado exitosamente").status(200);
-  } catch (err) {
-    console.error(err);
-    res.status(500).send("Error al actualizar el usuario");
-  }
-};
+    const token = generateToken({
+      id,
+      admin: user.admin,
+      name,
+      lastName,
+      email,
+      phoneNumber,
+    });
 
-const editUserName = async (req, res) => {
-  const { id } = req.body;
-  const { name } = req.body;
-
-  try {
-    const user = await Users.findOne({ where: { id } });
-
-    user.name = name;
-
-    await user.save();
-
-    res.send(user).status(200);
-  } catch (err) {
-    console.error(err);
-    res.status(500).send("Error al actualizar el usuario");
-  }
-};
-
-const editUserEmail = async (req, res) => {
-  const { id } = req.body;
-  const { email } = req.body;
-
-  try {
-    const user = await Users.findOne({ where: { id } });
-
-    user.email = email;
-
-    await user.save();
-
-    res.send(user).status(200);
-  } catch (err) {
-    console.error(err);
-    res.status(500).send("Error al actualizar el usuario");
-  }
-};
-
-const editUserLastName = async (req, res) => {
-  const { id } = req.body;
-  const { lastName } = req.body;
-
-  try {
-    const user = await Users.findOne({ where: { id } });
-
-    user.lastName = lastName;
-
-    await user.save();
-
-    res.send(user).status(200);
-  } catch (err) {
-    console.error(err);
-    res.status(500).send("Error al actualizar el usuario");
-  }
-};
-
-const editUserPhoneNumber = async (req, res) => {
-  const { id } = req.body;
-  const { phoneNumber } = req.body;
-
-  try {
-    const user = await Users.findOne({ where: { id } });
-
-    user.phoneNumber = phoneNumber;
-
-    await user.save();
+    res.cookie("token", token);
 
     res.send(user).status(200);
   } catch (err) {
@@ -157,8 +91,4 @@ module.exports = {
   secret,
   logout,
   editUser,
-  editUserName,
-  editUserEmail,
-  editUserLastName,
-  editUserPhoneNumber,
 };
