@@ -182,7 +182,7 @@ async function seedProperties() {
           "https://imgar.zonapropcdn.com/avisos/resize/1/00/51/32/97/13/1200x1200/1863007569.jpg",
           "https://imgar.zonapropcdn.com/avisos/resize/1/00/51/32/97/13/1200x1200/1863006896.jpg",
         ],
-        categoryId: 4,
+        categoryId: 5,
       },
       {
         is_for_rent: false,
@@ -199,7 +199,7 @@ async function seedProperties() {
           "https://imgar.zonapropcdn.com/avisos/resize/1/00/49/18/47/65/1200x1200/1796187841.jpg",
           "https://imgar.zonapropcdn.com/avisos/resize/1/00/49/18/47/65/1200x1200/1796187848.jpg",
         ],
-        categoryId: 4,
+        categoryId: 5,
       },
       {
         is_for_rent: false,
@@ -216,7 +216,7 @@ async function seedProperties() {
           "https://www.zonaprop.com.ar/propiedades/venta-lote-r3-frente-al-mar-zona-norte-50553881.html",
           "https://imgar.zonapropcdn.com/avisos/resize/1/00/50/55/38/81/1200x1200/1838416548.jpg",
         ],
-        categoryId: 4,
+        categoryId: 5,
       },
       {
         is_for_rent: false,
@@ -233,7 +233,7 @@ async function seedProperties() {
           "https://www.zonaprop.com.ar/propiedades/venta-de-local-en-uno-de-los-puntos-mas-comerciales-de-51230318.html",
           "https://www.zonaprop.com.ar/propiedades/venta-de-local-en-uno-de-los-puntos-mas-comerciales-de-51230318.html",
         ],
-        categoryId: 5,
+        categoryId: 4,
       },
       {
         is_for_rent: true,
@@ -244,13 +244,13 @@ async function seedProperties() {
         size: 100,
         bedrooms: 2,
         bathrooms: 1,
-        description: "Lolcal en alquiler",
+        description: "Local en alquiler",
         img: "https://imgar.zonapropcdn.com/avisos/resize/1/00/45/03/49/91/1200x1200/1702887028.jpg",
         imgs: [
           "https://imgar.zonapropcdn.com/avisos/resize/1/00/45/03/49/91/1200x1200/1702887030.jpg",
           "https://imgar.zonapropcdn.com/avisos/resize/1/00/45/03/49/91/1200x1200/1702887032.jpg",
         ],
-        categoryId: 5,
+        categoryId: 4,
       },
       {
         is_for_rent: false,
@@ -267,7 +267,7 @@ async function seedProperties() {
           "https://imgar.zonapropcdn.com/avisos/resize/1/00/50/55/49/73/1200x1200/1836708074.jpg",
           "https://imgar.zonapropcdn.com/avisos/resize/1/00/50/55/49/73/1200x1200/1836708077.jpg",
         ],
-        categoryId: 5,
+        categoryId: 4,
       },
       {
         is_for_rent: false,
@@ -437,7 +437,7 @@ async function seedProperties() {
           "https://imgar.zonapropcdn.com/avisos/resize/1/00/51/32/97/13/1200x1200/1863007569.jpg",
           "https://imgar.zonapropcdn.com/avisos/resize/1/00/51/32/97/13/1200x1200/1863006896.jpg",
         ],
-        categoryId: 4,
+        categoryId: 5,
       },
       {
         is_for_rent: false,
@@ -454,7 +454,7 @@ async function seedProperties() {
           "https://imgar.zonapropcdn.com/avisos/resize/1/00/49/18/47/65/1200x1200/1796187841.jpg",
           "https://imgar.zonapropcdn.com/avisos/resize/1/00/49/18/47/65/1200x1200/1796187848.jpg",
         ],
-        categoryId: 4,
+        categoryId: 5,
       },
       {
         is_for_rent: false,
@@ -471,7 +471,7 @@ async function seedProperties() {
           "https://www.zonaprop.com.ar/propiedades/venta-lote-r3-frente-al-mar-zona-norte-50553881.html",
           "https://imgar.zonapropcdn.com/avisos/resize/1/00/50/55/38/81/1200x1200/1838416548.jpg",
         ],
-        categoryId: 4,
+        categoryId: 5,
       },
       {
         is_for_rent: false,
@@ -488,7 +488,7 @@ async function seedProperties() {
           "https://www.zonaprop.com.ar/propiedades/venta-de-local-en-uno-de-los-puntos-mas-comerciales-de-51230318.html",
           "https://www.zonaprop.com.ar/propiedades/venta-de-local-en-uno-de-los-puntos-mas-comerciales-de-51230318.html",
         ],
-        categoryId: 5,
+        categoryId: 4,
       },
       {
         is_for_rent: true,
@@ -499,13 +499,13 @@ async function seedProperties() {
         size: 100,
         bedrooms: 2,
         bathrooms: 1,
-        description: "Lolcal en alquiler",
+        description: "Local en alquiler",
         img: "https://imgar.zonapropcdn.com/avisos/resize/1/00/45/03/49/91/1200x1200/1702887028.jpg",
         imgs: [
           "https://imgar.zonapropcdn.com/avisos/resize/1/00/45/03/49/91/1200x1200/1702887030.jpg",
           "https://imgar.zonapropcdn.com/avisos/resize/1/00/45/03/49/91/1200x1200/1702887032.jpg",
         ],
-        categoryId: 5,
+        categoryId: 4,
       },
       {
         is_for_rent: false,
@@ -522,7 +522,7 @@ async function seedProperties() {
           "https://imgar.zonapropcdn.com/avisos/resize/1/00/50/55/49/73/1200x1200/1836708074.jpg",
           "https://imgar.zonapropcdn.com/avisos/resize/1/00/50/55/49/73/1200x1200/1836708077.jpg",
         ],
-        categoryId: 5,
+        categoryId: 4,
       },
     ];
 
