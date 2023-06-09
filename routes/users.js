@@ -8,9 +8,5 @@ router.post("/login", usersController.login);
 router.post("/logout", usersController.logout);
 router.get("/secret", validateUser, usersController.secret);
 router.put("/edit", usersController.editUser);
-router.put("/edit/name", usersController.editUserName);
-router.put("/edit/last-name", usersController.editUserLastName);
-router.put("/edit/email", usersController.editUserEmail);
-router.put("/edit/phone-number", usersController.editUserPhoneNumber);
 
 module.exports = router;
