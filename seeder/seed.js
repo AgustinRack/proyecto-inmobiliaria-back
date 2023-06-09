@@ -432,6 +432,7 @@ async function seedProperties() {
         is_for_rent: true,
         price: 700,
         country: "Argentina",
+        province: "Mendonza",
         neighborhood: "Corrientes",
         address: "Colon 2919",
         size: 100,
