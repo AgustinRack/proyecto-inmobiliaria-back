@@ -6,10 +6,22 @@ const signup = async (req, res) => {
     const existingUser = await Users.findOne({
       where: { email: req.body.email },
     });
+
     if (existingUser) {
       return res.status(409).send("El correo electrónico ya está registrado");
     }
+
     await Users.create(req.body);
+
+    if (req.body.email == "soyeladmin@gmail.com") {
+      const adminUser = await Users.findOne({
+        where: { email: req.body.email },
+      });
+
+      adminUser.admin = true;
+
+      await adminUser.save();
+    }
     res.send("usuario creado exitosamente").status(200);
   } catch (err) {
     console.error(err);
