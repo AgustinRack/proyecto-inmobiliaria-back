@@ -3,7 +3,7 @@ const router = express.Router();
 const { propertiesController, usersController } = require("../controller");
 
 router.delete("/:id", propertiesController.deleteProperty);
-router.put("/edit/:id", propertiesController.editProperty);
+router.put("/property/edit", propertiesController.editProperty);
 router.post("/properties", propertiesController.createProperty);
 
 // router.put("/user/:id", usersController.toggleAdmin)
