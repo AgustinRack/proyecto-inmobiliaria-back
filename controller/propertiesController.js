@@ -21,8 +21,10 @@ const deleteProperty = async (req, res) => {
 };
 
 const editProperty = async (req, res) => {
-  const { id } = req.params;
   const {
+    id,
+    is_for_rent,
+    province,
     size,
     bathrooms,
     bedrooms,
