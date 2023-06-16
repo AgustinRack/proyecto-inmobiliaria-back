@@ -37,12 +37,12 @@ const editProperty = async (req, res) => {
     imgs,
     categoryId,
   } = req.body;
+  console.log("CATEGORYID", categoryId);
   try {
     const property = await Properties.findOne({
       include: [Categories],
       where: { id },
     });
-
     property.is_for_rent = is_for_rent;
     property.province = province;
     property.price = price;
@@ -59,7 +59,12 @@ const editProperty = async (req, res) => {
     await property.setCategory(categoryId);
     await property.save();
 
-    res.send(property).status(200);
+    const property2 = await Properties.findOne({
+      include: [Categories],
+      where: { id },
+    });
+
+    res.send(property2).status(200);
   } catch (err) {
     console.error(err);
     res.status(500).send("Error al actualizar la propiedad");
