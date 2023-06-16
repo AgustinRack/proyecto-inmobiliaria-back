@@ -37,25 +37,33 @@ const editProperty = async (req, res) => {
     imgs,
     categoryId,
   } = req.body;
+  try {
+    const property = await Properties.findOne({
+      include: [Categories],
+      where: { id },
+    });
 
-  Properties.update(
-    {
-      price: price,
-      country: country,
-      neighborhood: neighborhood,
-      address: address,
-      size: size,
-      bedrooms: bedrooms,
-      bathrooms: bathrooms,
-      description: description,
-      img: img,
-      imgs: imgs,
-      categoryId: categoryId,
-    },
-    { where: { id } }
-  )
-    .then((properties) => res.status(200).send(properties))
-    .catch((error) => console.log(error));
+    property.is_for_rent = is_for_rent;
+    property.province = province;
+    property.price = price;
+    property.country = country;
+    property.neighborhood = neighborhood;
+    property.address = address;
+    property.size = size;
+    property.bedrooms = bedrooms;
+    property.bathrooms = bathrooms;
+    property.description = description;
+    property.img = img;
+    property.imgs = imgs;
+    property.categoryId = categoryId;
+    await property.setCategory(categoryId);
+    await property.save();
+
+    res.send(property).status(200);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Error al actualizar la propiedad");
+  }
 };
 
 const getPropertiesForRent = async (req, res) => {
@@ -119,6 +127,25 @@ const createProperty = async (req, res) => {
   }
 };
 
+const getProperty = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const property = await Properties.findOne({
+      include: { model: Categories },
+      where: { id },
+    });
+
+    if (!property) {
+      return res.status(404).send("Propiedad no encontrada");
+    }
+
+    res.send(property);
+  } catch (error) {
+    console.log(error);
+    res.status(500).send("Error al encontrar la propiedad");
+  }
+};
+
 module.exports = {
   allProperties,
   deleteProperty,
@@ -126,4 +153,5 @@ module.exports = {
   getPropertiesForRent,
   getPropertiesForSale,
   createProperty,
+  getProperty,
 };

@@ -20,7 +20,7 @@ app.use(
 
 app.use("/", routes);
 
-const force = false;
+const force = true;
 
 db.sync({ force: force })
   .then(function () {
