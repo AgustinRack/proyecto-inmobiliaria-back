@@ -59,12 +59,9 @@ const editProperty = async (req, res) => {
     await property.setCategory(categoryId);
     await property.save();
 
-    const property2 = await Properties.findOne({
-      include: [Categories],
-      where: { id },
-    });
+    await property.reload();
 
-    res.send(property2).status(200);
+    res.send(property).status(200);
   } catch (err) {
     console.error(err);
     res.status(500).send("Error al actualizar la propiedad");
