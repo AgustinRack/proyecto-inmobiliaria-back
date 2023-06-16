@@ -7,5 +7,6 @@ router.get("/all", propertiesController.allProperties);
 
 router.get("/for-rent", propertiesController.getPropertiesForRent);
 router.get("/for-sale", propertiesController.getPropertiesForSale);
+router.get("/property/:id", propertiesController.getProperty);
 
 module.exports = router;
