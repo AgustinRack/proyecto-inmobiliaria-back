@@ -29,4 +29,19 @@ const getPropertyVisits = async (req, res) => {
   }
 };
 
-module.exports = { saveVisit, getPropertyVisits };
+const getUserVisits = async (req, res) => {
+  try {
+    const userId = req.params.id;
+
+    const visits = await Visits.findAll({
+      include: { model: Properties },
+      where: { userId: userId },
+    });
+
+    res.status(200).send(visits);
+  } catch (error) {
+    res.status(404);
+  }
+};
+
+module.exports = { saveVisit, getPropertyVisits, getUserVisits };
