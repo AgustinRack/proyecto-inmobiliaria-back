@@ -44,4 +44,16 @@ const getUserVisits = async (req, res) => {
   }
 };
 
-module.exports = { saveVisit, getPropertyVisits, getUserVisits };
+const getAllVisits = async (req, res) => {
+  try {
+    const allVisits = await Visits.findAll({
+      include: [{ model: Properties }, { model: Users }],
+    });
+
+    res.status(200).send(allVisits);
+  } catch (error) {
+    res.status(404);
+  }
+};
+
+module.exports = { saveVisit, getPropertyVisits, getUserVisits, getAllVisits };
