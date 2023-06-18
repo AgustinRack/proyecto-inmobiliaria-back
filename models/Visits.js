@@ -5,8 +5,8 @@ class Visits extends Sequelize.Model {}
 
 Visits.init(
   {
-    date: { type: DataTypes.DATE, allowNull: false },
-    schedule: { type: DataTypes.TIME, allowNull: false },
+    date: { type: Sequelize.STRING, allowNull: false },
+    schedule: { type: Sequelize.INTEGER, allowNull: false },
   },
   { sequelize: db, modelName: "visits" }
 );
