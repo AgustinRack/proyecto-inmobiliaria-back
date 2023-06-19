@@ -1,4 +1,4 @@
-const { Properties, Categories } = require("../models");
+const { Properties, Categories, Visits } = require("../models");
 
 const allProperties = async (req, res) => {
   Properties.findAll({
@@ -14,6 +14,7 @@ const deleteProperty = async (req, res) => {
   try {
     const { id } = req.params;
 
+    Visits.destroy({ where: { propertyId: id } });
     Properties.destroy({ where: { id } });
 
     res.status(202).send("Producto eliminado");
