@@ -6,9 +6,9 @@ const {
   visitsController,
 } = require("../controller");
 
-router.delete("/:id", propertiesController.deleteProperty);
+router.delete("/property/:id", propertiesController.deleteProperty);
 router.put("/property/edit", propertiesController.editProperty);
-router.post("/property/:id", propertiesController.createProperty);
+router.post("/new-property", propertiesController.createProperty);
 router.get("/visits", visitsController.getAllVisits);
 // router.put("/user/:id", usersController.toggleAdmin)
 
