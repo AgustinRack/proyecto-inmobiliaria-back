@@ -11,13 +11,15 @@ const allProperties = async (req, res) => {
 };
 
 const deleteProperty = async (req, res) => {
-  const { id } = req.params;
+  try {
+    const { id } = req.params;
 
-  Properties.destroy({ where: { id } })
-    .then(() => {
-      res.status(202).send("Producto eliminado");
-    })
-    .catch((error) => console.log(error));
+    Properties.destroy({ where: { id } });
+
+    res.status(202).send("Producto eliminado");
+  } catch (error) {
+    res.status(404).send(error);
+  }
 };
 
 const editProperty = async (req, res) => {
@@ -37,7 +39,7 @@ const editProperty = async (req, res) => {
     imgs,
     categoryId,
   } = req.body;
-  console.log("CATEGORYID", categoryId);
+
   try {
     const property = await Properties.findOne({
       include: [Categories],
@@ -94,6 +96,8 @@ const getPropertiesForSale = async (req, res) => {
 
 const createProperty = async (req, res) => {
   const {
+    is_for_rent,
+    province,
     size,
     bathrooms,
     bedrooms,
@@ -109,6 +113,8 @@ const createProperty = async (req, res) => {
 
   try {
     const property = await Properties.create({
+      is_for_rent,
+      province,
       size,
       bathrooms,
       bedrooms,
@@ -121,8 +127,9 @@ const createProperty = async (req, res) => {
       imgs,
       categoryId,
     });
+    await property.setCategory(categoryId);
 
-    res.status(201).send(property);
+    res.sendStatus(201);
   } catch (error) {
     console.log(error);
     res.status(500).send("Error al crear la propiedad");
