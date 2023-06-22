@@ -33,10 +33,10 @@ const login = async (req, res) => {
     const user = await Users.findOne({
       where: { email: req.body.email },
     });
-    if (!user) return res.sendStatus(401);
+    if (!user) return res.send("No se encontro el usuario");
     const { id, admin, name, lastName, email, phoneNumber } = user;
     user.validatePassword(req.body.password).then((isValid) => {
-      if (!isValid) return res.sendStatus(401);
+      if (!isValid) return res.send("Usuario invalido");
       else {
         const token = generateToken({
           id,
@@ -47,7 +47,7 @@ const login = async (req, res) => {
           phoneNumber,
         });
         res.cookie("token", token);
-        res.sendStatus(200);
+        res.status(200).send("Usuario ingresado correctamente");
       }
     });
   } catch (err) {
