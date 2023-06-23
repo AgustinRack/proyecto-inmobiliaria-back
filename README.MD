@@ -21,7 +21,7 @@ INSTALACION:
 - Clonar el repositorio
 - En la terminal navega hasta el directorio raiz
 - Ejecuta "npm i" para instalar las dependecias
-- Asegurar tener configurado un archivo .env con los datos correspondientes
+- Asegurar tener configurado un archivo .env con los datos correspondientes EMAIL y EMAIL_PASSWORD
 - inicia el servidor con "npm start"
 
 MODELOS DE DATOS:
@@ -31,6 +31,9 @@ MODELOS DE DATOS:
 - VISITS: muetra las diferentes acciones que puede realizar quien visite la web
 - FAVORITES: muestra como un cliente puede agregar una propiedad a su lista de favoritos
 - USERS: Almacena datos de los usuarios registrados
+
+DIAGRAMA DE FLUJO:
+![diagrama](./assets/diagrama.png)
 
 RUTAS:
 -ADMIN: Permite realizar diferentes gestiones como agregar, editar o eliminar una propiedad.
