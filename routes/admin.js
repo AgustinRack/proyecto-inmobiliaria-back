@@ -5,11 +5,27 @@ const {
   usersController,
   visitsController,
 } = require("../controller");
+const { validateUser } = require("../middleware/auth");
+const { isAdmin } = require("../middleware/auth");
 
-router.delete("/property/:id", propertiesController.deleteProperty);
-router.put("/property/edit", propertiesController.editProperty);
-router.post("/new-property", propertiesController.createProperty);
-router.get("/visits", visitsController.getAllVisits);
-// router.put("/user/:id", usersController.toggleAdmin)
+router.delete(
+  "/property/:id",
+  validateUser,
+  isAdmin,
+  propertiesController.deleteProperty
+);
+router.put(
+  "/property/edit",
+  validateUser,
+  isAdmin,
+  propertiesController.editProperty
+);
+router.post(
+  "/new-property",
+  validateUser,
+  isAdmin,
+  propertiesController.createProperty
+);
+router.get("/visits", validateUser, isAdmin, visitsController.getAllVisits);
 
 module.exports = router;
