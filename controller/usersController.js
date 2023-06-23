@@ -1,5 +1,7 @@
 const { generateToken, validateToken } = require("../config/token");
 const { Users } = require("../models");
+const transporter = require("../helper/mailer");
+require("dotenv").config();
 
 const signup = async (req, res) => {
   try {
@@ -97,10 +99,30 @@ const editUser = async (req, res) => {
   }
 };
 
+const sendEmail = async (req, res) => {
+  try {
+    const { email } = req.params;
+    const { customText } = req.body;
+
+    const response = await transporter.sendMail({
+      from: `House of Dev. ${process.env.EMAIL}`,
+      to: email,
+      subject: "Visita",
+      text: `${customText}`,
+    });
+
+    res.status(200).send("Correo electrónico enviado correctamente");
+  } catch (error) {
+    console.log(error);
+    res.status(500).send("Error al enviar el correo electrónico");
+  }
+};
+
 module.exports = {
   signup,
   login,
   secret,
   logout,
   editUser,
+  sendEmail,
 };
