@@ -118,6 +118,20 @@ const sendEmail = async (req, res) => {
   }
 };
 
+const allUsers = async (req, res) => {
+  try {
+    const users = await Users.findAll({
+      where: {
+        admin: false,
+      },
+      attributes: { exclude: ["password"] },
+    });
+    res.status(200).send(users);
+  } catch (error) {
+    res.status(500).send("Error al enviar todos los usuarios");
+  }
+};
+
 module.exports = {
   signup,
   login,
@@ -125,4 +139,5 @@ module.exports = {
   logout,
   editUser,
   sendEmail,
+  allUsers,
 };

@@ -27,5 +27,6 @@ router.post(
   propertiesController.createProperty
 );
 router.get("/visits", validateUser, isAdmin, visitsController.getAllVisits);
+router.get("/all-users", validateUser, isAdmin, usersController.allUsers);
 
 module.exports = router;
