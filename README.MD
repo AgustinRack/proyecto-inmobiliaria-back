@@ -14,6 +14,7 @@ DEPENDECIAS:
 - psql
 - sequelize
 - sequelize-cli
+- dotenv
 
 INSTALACION:
 
