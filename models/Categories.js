@@ -5,7 +5,13 @@ class Categories extends Sequelize.Model {}
 
 Categories.init(
   {
-    categoryName: { type: Sequelize.STRING, allowNull: false },
+    categoryName: {
+      type: Sequelize.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: true,
+      },
+    },
   },
   { sequelize: db, modelName: "categories" }
 );

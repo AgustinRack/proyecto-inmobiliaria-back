@@ -7,10 +7,37 @@ class Users extends Sequelize.Model {}
 Users.init(
   {
     admin: { type: Sequelize.BOOLEAN, defaultValue: false },
-    name: { type: Sequelize.STRING, allowNull: false },
-    lastName: { type: Sequelize.STRING, allowNull: false },
-    email: { type: Sequelize.STRING, allowNull: false, unique: true },
-    password: { type: Sequelize.STRING, allowNull: false },
+    name: {
+      type: Sequelize.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: true,
+      },
+    },
+    lastName: {
+      type: Sequelize.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: true,
+      },
+    },
+    email: {
+      type: Sequelize.STRING,
+      allowNull: false,
+      unique: true,
+      validate: {
+        isEmail: {
+          msg: "Invalid email format",
+        },
+      },
+    },
+    password: {
+      type: Sequelize.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: true,
+      },
+    },
     phoneNumber: { type: Sequelize.BIGINT, allowNull: false },
   },
   { sequelize: db, modelName: "users" }
